@@ -9,7 +9,7 @@
     <Grid>
         <TreeView x:Name="TreeView1" Grid.Row="0" ItemsSource="{Binding Path=Data, Mode=OneWay}">
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Path=Childrens}">
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
                     <TextBlock Text="{Binding Path=Caption}"
                                ContextMenuService.IsEnabled="{Binding Path=CommandsIsEmpty}">
                         <TextBlock.ContextMenu>

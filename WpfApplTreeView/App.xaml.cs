@@ -34,7 +34,7 @@ namespace WpfApplication1
 
             var item11 = new TreeNodeViewModel("Это дочерний пункт");
             item11.AddCommand(new MenuItemViewModel("Это меню 11", new CustomCommand("Это команда 11")));
-            item1.Childrens.Add(item11);
+            item1.Children.Add(item11);
 
             var item2 = new TreeNodeViewModel("Это пункт без команд");
             viewModel.Data.Add(item2);

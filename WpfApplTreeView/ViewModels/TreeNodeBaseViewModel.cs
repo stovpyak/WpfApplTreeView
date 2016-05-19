@@ -14,7 +14,7 @@ namespace WpfApplication1.ViewModels
         /// <summary>
         /// Дочерние узлы
         /// </summary>
-        public ObservableCollection<TreeNodeBaseViewModel> Childrens { get; } = new ObservableCollection<TreeNodeBaseViewModel>();
+        public ObservableCollection<TreeNodeBaseViewModel> Children { get; } = new ObservableCollection<TreeNodeBaseViewModel>();
 
         /// <summary>
         /// Комманды (точнее viewModel для них). Из них будет сформировано контекстное меню для каждого кункта
