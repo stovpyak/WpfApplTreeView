@@ -4,8 +4,16 @@ namespace WpfApplication1.ViewModels
 {
     public class TreeNodeViewModel: TreeNodeBaseViewModel
     {
-        public TreeNodeViewModel(string caption) : base(caption)
+        public TreeNodeViewModel(string caption) 
         {
+            Caption = caption;
+        }
+
+        public override string Caption { get; }
+
+        public override object Icon
+        {
+            get { return null; }
         }
 
         private ObservableCollection<MenuItemViewModel> _commands;

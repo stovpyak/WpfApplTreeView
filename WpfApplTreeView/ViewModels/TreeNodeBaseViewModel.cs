@@ -2,14 +2,11 @@
 
 namespace WpfApplication1.ViewModels
 {
-    public class TreeNodeBaseViewModel
+    public abstract class TreeNodeBaseViewModel
     {
-        public TreeNodeBaseViewModel(string caption)
-        {
-            Caption = caption;
-        }
+        public abstract string Caption { get; }
 
-        public string Caption { get; set; }
+        public abstract object Icon { get; }
 
         /// <summary>
         /// Дочерние узлы
@@ -17,7 +14,7 @@ namespace WpfApplication1.ViewModels
         public ObservableCollection<TreeNodeBaseViewModel> Children { get; } = new ObservableCollection<TreeNodeBaseViewModel>();
 
         /// <summary>
-        /// Комманды (точнее viewModel для них). Из них будет сформировано контекстное меню для каждого кункта
+        /// Команды (точнее viewModel для них). Из них будет сформировано контекстное меню для каждого пункта
         /// </summary>
         public ReadOnlyObservableCollection<MenuItemViewModel> Commands => GetCommands();
 

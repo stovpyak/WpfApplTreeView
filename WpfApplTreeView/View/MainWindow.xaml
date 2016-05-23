@@ -8,21 +8,43 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <TreeView x:Name="TreeView1" Grid.Row="0" ItemsSource="{Binding Path=Data, Mode=OneWay}">
+            <TreeView.Resources>
+                <Style x:Key="StackPanelStyle" TargetType="StackPanel">
+                    <Setter Property="MinHeight" Value="24"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="Orientation" Value="Horizontal"/>
+                </Style>
+                <Style x:Key="ImageStyle" TargetType="Image">
+                    <Setter Property="MaxHeight" Value="20"/>
+                    <Setter Property="MaxWidth" Value="20"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+                <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Control.Foreground" Value="Black"/>
+                </Style>
+            </TreeView.Resources>
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
-                    <TextBlock Text="{Binding Path=Caption}"
-                               ContextMenuService.IsEnabled="{Binding Path=CommandsIsEmpty}">
-                        <TextBlock.ContextMenu>
-                            <ContextMenu ItemsSource="{Binding Path=Commands}">
-                                <ContextMenu.ItemContainerStyle>
-                                    <Style TargetType="{x:Type MenuItem}">
-                                        <Setter Property="Header" Value="{Binding Path=Header}" />
-                                        <Setter Property="Command" Value="{Binding Path=Command}" />
-                                    </Style>
-                                </ContextMenu.ItemContainerStyle>
-                            </ContextMenu>
-                        </TextBlock.ContextMenu>
-                    </TextBlock>
+                    <StackPanel Style="{StaticResource StackPanelStyle}">
+                        <Image Style="{StaticResource ImageStyle}"
+                               Source="{Binding Path=Icon}">
+                        </Image>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" 
+                                   Text="{Binding Path=Caption}"
+                                   ContextMenuService.IsEnabled="{Binding Path=CommandsIsEmpty}">
+                            <TextBlock.ContextMenu>
+                                <ContextMenu ItemsSource="{Binding Path=Commands}">
+                                    <ContextMenu.ItemContainerStyle>
+                                        <Style TargetType="{x:Type MenuItem}">
+                                            <Setter Property="Header" Value="{Binding Path=Header}" />
+                                            <Setter Property="Command" Value="{Binding Path=Command}" />
+                                        </Style>
+                                    </ContextMenu.ItemContainerStyle>
+                                </ContextMenu>
+                            </TextBlock.ContextMenu>
+                        </TextBlock>
+                    </StackPanel>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
