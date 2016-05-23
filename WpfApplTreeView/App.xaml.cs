@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using WpfApplication1.Model;
 using WpfApplication1.View;
 using WpfApplication1.ViewModels;
 
@@ -11,33 +13,46 @@ namespace WpfApplication1
     {
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            var viewModel = new MainViewModel();
-
-            InitDataItemsForSample(viewModel);
-
-            var view = new MainWindow();
-            view.DataContext = viewModel;
+            var model = BuildModelForSample();
+            var viewModel = BuildViewModel(model);
+            var view = new MainWindow {DataContext = viewModel};
             view.Show();
         }
 
-        /// <summary>
-        /// Создаем viewModel для теста
-        /// </summary>
-        private void InitDataItemsForSample(MainViewModel viewModel)
+
+        private ObservableCollection<PersonGroup> BuildModelForSample()
         {
-            var item1 = new TreeNodeViewModel("Это пункт 1");
+            var model = new ObservableCollection<PersonGroup>();
 
-            item1.AddCommand(new MenuItemViewModel("Это меню 1", new CustomCommand("Это команда 1")));
-            item1.AddCommand(new MenuItemViewModel("Это меню 2", new CustomCommand("Это команда 2")));
-            item1.AddCommand(new MenuItemViewModel("Это меню 3", new CustomCommand("Это команда 3")));
-            viewModel.Data.Add(item1);
+            var alex = new Person("Alex");
+            var beatrice = new Person("Beatrice");
 
-            var item11 = new TreeNodeViewModel("Это дочерний пункт");
-            item11.AddCommand(new MenuItemViewModel("Это меню 11", new CustomCommand("Это команда 11")));
-            item1.Children.Add(item11);
+            var swimmers = new PersonGroup("Swimmers");
+            model.Add(swimmers);
 
-            var item2 = new TreeNodeViewModel("Это пункт без команд");
-            viewModel.Data.Add(item2);
+            swimmers.Persons.Add(alex);
+            swimmers.Persons.Add(beatrice);
+
+            var cooks = new PersonGroup("Cooks");
+            model.Add(cooks);
+            cooks.Persons.Add(alex);
+
+            var softwareEngineers = new PersonGroup("Software Engineers");
+            model.Add(softwareEngineers);
+
+            return model;
+        }
+
+        private MainViewModel BuildViewModel(ObservableCollection<PersonGroup> model)
+        {
+            var viewModel = new MainViewModel();
+            foreach (var group in model)
+            {
+                var groupViewModel = new GroupViewModel(group);
+                viewModel.Data.Add(groupViewModel);
+            }
+
+            return viewModel;
         }
     }
 }

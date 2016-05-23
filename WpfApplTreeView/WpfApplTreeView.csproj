@@ -55,11 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\PersonGroup.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModels\CustomCommand.cs" />
+    <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="ViewModels\PersonViewModel.cs" />
     <Compile Include="ViewModels\TreeNodeBaseViewModel.cs" />
-    <Compile Include="ViewModels\TreeNodeViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
