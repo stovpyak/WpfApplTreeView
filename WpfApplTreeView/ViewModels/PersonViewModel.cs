@@ -11,7 +11,16 @@ namespace WpfApplication1.ViewModels
             _person = person;
         }
 
-        public override string Caption => _person.Name;
+        public override string Caption
+        {
+            get
+            {
+                var email = _person.Email;
+                if (email != "")
+                    return $"{_person.Name} ({email})";
+                return _person.Name;
+            }
+        }
 
         public override object Icon => null;
     }

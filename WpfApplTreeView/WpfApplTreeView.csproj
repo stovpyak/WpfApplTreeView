@@ -55,10 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ComplexEmailSource.cs" />
+    <Compile Include="Model\IEmailSource.cs" />
     <Compile Include="Model\PersonGroup.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModels\CustomCommand.cs" />
-    <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\PersonGroupViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />

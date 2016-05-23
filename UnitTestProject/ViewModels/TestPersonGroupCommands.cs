@@ -1,28 +1,30 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UnitTestProject.Model;
 using WpfApplication1.Model;
 using WpfApplication1.ViewModels;
 
 namespace UnitTestProject.ViewModels
 {
     [TestClass]
-    public class TestPersonGroup
+    public class TestPersonGroupCommands
     {
         [TestMethod]
-        public void TestCommandsEmpty()
+        public void TestGroupWithoutPersons()
         {
             var model = new PersonGroup("Group");
-            var viewModel = new GroupViewModel(model);
+            var viewModel = new PersonGroupViewModel(model);
             Assert.AreEqual(0, viewModel.Commands.Count, "incorrect commands count");
         }
 
         [TestMethod]
-        public void TestCommands()
+        public void TestGroupWithOnePerson()
         {
             var model = new PersonGroup("Group");
-            var person = new Person("Person");
+            var emailSource = new EmailSourceDummy();
+            var person = new Person("Person", emailSource);
             model.Persons.Add(person);
             
-            var viewModel = new GroupViewModel(model);
+            var viewModel = new PersonGroupViewModel(model);
             Assert.AreEqual(1, viewModel.Commands.Count, "incorrect commands count");
         }
     }

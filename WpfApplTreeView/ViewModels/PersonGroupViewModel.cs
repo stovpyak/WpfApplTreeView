@@ -4,13 +4,13 @@ using WpfApplication1.Model;
 
 namespace WpfApplication1.ViewModels
 {
-    public class GroupViewModel: TreeNodeBaseViewModel
+    public class PersonGroupViewModel: TreeNodeBaseViewModel
     {
         private readonly PersonGroup _groupModel;
         private readonly ObservableCollection<MenuItemViewModel> _commands;
         private readonly ReadOnlyObservableCollection<MenuItemViewModel> _readOnlyCommands;
 
-        public GroupViewModel(PersonGroup group)
+        public PersonGroupViewModel(PersonGroup group)
         {
             _commands = new ObservableCollection<MenuItemViewModel>();
             _readOnlyCommands = new ReadOnlyObservableCollection<MenuItemViewModel>(_commands);

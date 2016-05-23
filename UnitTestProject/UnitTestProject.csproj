@@ -50,8 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Model\EmailSourceDummy.cs" />
+    <Compile Include="Model\EmailSourceStub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\TestPersonGroup.cs" />
+    <Compile Include="ViewModels\TestPersonCaption.cs" />
+    <Compile Include="ViewModels\TestPersonGroupCommands.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WpfApplTreeView\WpfApplTreeView.csproj">

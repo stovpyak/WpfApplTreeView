@@ -22,9 +22,10 @@ namespace WpfApplication1
         private ObservableCollection<PersonGroup> BuildModelForSample()
         {
             var model = new ObservableCollection<PersonGroup>();
+            var emailSource = new ComplexEmailSource();
 
-            var alex = new Person("Alex");
-            var beatrice = new Person("Beatrice");
+            var alex = new Person("Alex", emailSource);
+            var beatrice = new Person("Beatrice", emailSource);
 
             var swimmers = new PersonGroup("Swimmers");
             model.Add(swimmers);
@@ -47,7 +48,7 @@ namespace WpfApplication1
             var viewModel = new MainViewModel();
             foreach (var group in model)
             {
-                var groupViewModel = new GroupViewModel(group);
+                var groupViewModel = new PersonGroupViewModel(group);
                 viewModel.Data.Add(groupViewModel);
             }
 
