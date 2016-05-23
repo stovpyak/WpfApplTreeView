@@ -16,7 +16,7 @@ namespace UnitTestProject.Model
             _email = email;
         }
 
-        public string GetEmail()
+        public string GetEmail(object parameter)
         {
             return _email;
         }

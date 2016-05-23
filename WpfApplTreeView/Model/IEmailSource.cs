@@ -2,6 +2,6 @@
 {
     public interface IEmailSource
     {
-        string GetEmail();
+        string GetEmail(object parameter);
     }
 }

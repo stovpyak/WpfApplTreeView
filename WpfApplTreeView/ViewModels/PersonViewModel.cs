@@ -1,4 +1,5 @@
-﻿using WpfApplication1.Model;
+﻿using System.Collections.ObjectModel;
+using WpfApplication1.Model;
 
 namespace WpfApplication1.ViewModels
 {
@@ -9,6 +10,16 @@ namespace WpfApplication1.ViewModels
         public PersonViewModel(Person person)
         {
             _person = person;
+        }
+
+        protected override ReadOnlyObservableCollection<MenuItemViewModel> GetCommands()
+        {
+            var commands = new ObservableCollection<MenuItemViewModel>();
+            if (_person.Email != "")
+            {
+                commands.Add(new MenuItemViewModel("Отправить email", new CustomCommand($"send email to {_person.Email}")));
+            }
+            return new ReadOnlyObservableCollection<MenuItemViewModel>(commands);
         }
 
         public override string Caption

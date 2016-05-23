@@ -12,6 +12,6 @@
 
         public string Name { get; private set; }
 
-        public string Email => _emailSource.GetEmail();
+        public string Email => _emailSource.GetEmail(this);
     }
 }
