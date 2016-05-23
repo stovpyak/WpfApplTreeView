@@ -18,8 +18,7 @@ namespace WpfApplication1
             var view = new MainWindow {DataContext = viewModel};
             view.Show();
         }
-
-
+        
         private ObservableCollection<PersonGroup> BuildModelForSample()
         {
             var model = new ObservableCollection<PersonGroup>();
