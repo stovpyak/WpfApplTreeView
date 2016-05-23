@@ -5,5 +5,5 @@
 - Создание TreeView с помощью привязок на основе ViewModel.
 - Индивидуальное контекстное меню для каждого пункта дерева за счет предоставления каждым узлом списка команд
 
-2) UnitTests: Dummy, Stub
-- Модульные тесты для ViewModel (с использованием Dummy, Stub)
+2) UnitTests: 
+- Модульные тесты для ViewModel (с использованием XUnit patterns Dummy, Stub, Spy и Mock)
