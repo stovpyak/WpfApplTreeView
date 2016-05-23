@@ -14,7 +14,8 @@ namespace WpfApplication1
         private void OnStartup(object sender, StartupEventArgs e)
         {
             var model = BuildModelForSample();
-            var viewModel = BuildViewModel(model);
+            var emailSender = new ComplexEmailSender();
+            var viewModel = BuildViewModel(model, emailSender);
             var view = new MainWindow {DataContext = viewModel};
             view.Show();
         }
@@ -43,12 +44,12 @@ namespace WpfApplication1
             return model;
         }
 
-        private MainViewModel BuildViewModel(ObservableCollection<PersonGroup> model)
+        private MainViewModel BuildViewModel(ObservableCollection<PersonGroup> model, IEmailSender emailSender)
         {
             var viewModel = new MainViewModel();
             foreach (var group in model)
             {
-                var groupViewModel = new PersonGroupViewModel(group);
+                var groupViewModel = new PersonGroupViewModel(group, emailSender);
                 viewModel.Data.Add(groupViewModel);
             }
 

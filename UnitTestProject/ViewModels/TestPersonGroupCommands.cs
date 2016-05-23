@@ -12,7 +12,8 @@ namespace UnitTestProject.ViewModels
         public void TestGroupWithoutPersons()
         {
             var model = new PersonGroup("Group");
-            var viewModel = new PersonGroupViewModel(model);
+            var emailSender = new EmailSenderDummy();
+            var viewModel = new PersonGroupViewModel(model, emailSender);
             Assert.AreEqual(0, viewModel.Commands.Count, "incorrect commands count");
         }
 
@@ -23,8 +24,9 @@ namespace UnitTestProject.ViewModels
             var emailSource = new EmailSourceDummy();
             var person = new Person("Person", emailSource);
             model.Persons.Add(person);
-            
-            var viewModel = new PersonGroupViewModel(model);
+
+            var emailSender = new EmailSenderDummy();
+            var viewModel = new PersonGroupViewModel(model, emailSender);
             Assert.AreEqual(1, viewModel.Commands.Count, "incorrect commands count");
         }
     }

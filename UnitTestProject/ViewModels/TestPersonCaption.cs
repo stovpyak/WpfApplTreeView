@@ -13,7 +13,8 @@ namespace UnitTestProject.ViewModels
         {
             var emailSource = new EmailSourceStub("person@gmail.com");
             var model = new Person("Name", emailSource);
-            var viewModel = new PersonViewModel(model);
+            var emailSender = new EmailSenderDummy();
+            var viewModel = new PersonViewModel(model, emailSender);
 
             Assert.AreEqual("Name (person@gmail.com)", viewModel.Caption, "incorrect person caption");
         }

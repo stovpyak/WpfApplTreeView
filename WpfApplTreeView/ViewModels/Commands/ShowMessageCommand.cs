@@ -2,16 +2,16 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace WpfApplication1.ViewModels
+namespace WpfApplication1.ViewModels.Commands
 {
     /// <summary>
-    /// Команда для демонстрации того, что привязки отработали правильно
+    /// Команда для демонстрации того, что команда была вызвана
     /// </summary>
-    public class CustomCommand: ICommand
+    public class ShowMessageCommand: ICommand
     {
         private readonly string _msg;
 
-        public CustomCommand(string msg)
+        public ShowMessageCommand(string msg)
         {
             _msg = msg;
         }
@@ -23,7 +23,7 @@ namespace WpfApplication1.ViewModels
 
         public void Execute(object parameter)
         {
-            MessageBox.Show($"Custom Command Executed {_msg}");
+            MessageBox.Show($"Command Executed {_msg}");
         }
 
         public event EventHandler CanExecuteChanged;
