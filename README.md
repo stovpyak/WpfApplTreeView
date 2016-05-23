@@ -1,5 +1,5 @@
 # WpfApplTreeView
-WPF, TreeView, MVVM, Commands, UnitTests, Dummy, Stub
+WPF: TreeView, MVVM, Commands; UnitTests: Dummy, Stub
 
 Создание TreeView с помощью привязок на основе ViewModel.
 
